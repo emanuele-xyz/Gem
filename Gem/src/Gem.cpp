@@ -1,5 +1,5 @@
-#include "Gem\pch.h"
-#include "Gem\Gem.h"
+#include <Gem\pch.h>
+#include <Gem\Gem.h>
 
 namespace Gem
 {

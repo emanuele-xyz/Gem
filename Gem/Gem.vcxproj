@@ -107,6 +107,7 @@
     <ClInclude Include="public\Gem\GemAPI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Errors.cpp" />
     <ClCompile Include="src\Gem.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
