@@ -1,2 +1,7 @@
 # Visual Studio
 .vs
+bin
+tmp
+
+# vcpkg
+vcpkg_installed
