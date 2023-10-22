@@ -6,6 +6,15 @@ int main()
 {
 	std::cout << "Hello from Battling Through the Lands!" << std::endl;
 	Gem::Hello();
-	GemCrash("crash");
-	//return 0;
+
+	try
+	{
+		GemCrash("crash");
+	}
+	catch (const Gem::Crash& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	return 0;
 }
