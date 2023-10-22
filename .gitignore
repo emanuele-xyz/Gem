@@ -5,3 +5,6 @@ tmp
 
 # vcpkg
 vcpkg_installed
+
+# working directory
+data

@@ -102,6 +102,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="private\Gem\pch.h" />
+    <ClInclude Include="private\Gem\Utils.h" />
     <ClInclude Include="private\Gem\Win32.h" />
     <ClInclude Include="public\Gem\Errors.h" />
     <ClInclude Include="public\Gem\Gem.h" />
@@ -116,6 +117,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\PlatformWin32.cpp" />
+    <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
