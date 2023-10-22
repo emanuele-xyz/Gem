@@ -9,16 +9,44 @@
 
 namespace Gem
 {
+	class SPDLogHandle
+	{
+	private:
+		constexpr static int s_queue_size{ 2048 };
+		constexpr static int s_worker_threads{ 1 };
+	public:
+		SPDLogHandle(bool log_to_console, bool log_to_file, const std::string& log_file = "log.txt");
+	};
+
+	SPDLogHandle::SPDLogHandle(bool log_to_console, bool log_to_file, const std::string& log_file)
+	{
+		spdlog::init_thread_pool(s_queue_size, s_worker_threads);
+
+		std::vector<spdlog::sink_ptr> sinks{};
+
+		if (log_to_console)
+		{
+			auto sink{ std::make_shared<spdlog::sinks::stdout_color_sink_mt>() };
+			sinks.push_back(sink);
+		}
+		if (log_to_file)
+		{
+			auto sink{ std::make_shared<spdlog::sinks::basic_file_sink_mt>(log_file, true) };
+			sinks.push_back(sink);
+		}
+
+		auto logger{ std::make_shared<spdlog::async_logger>("logger", sinks.begin(), sinks.end(), spdlog::thread_pool(), spdlog::async_overflow_policy::block) };
+		spdlog::set_default_logger(logger);
+
+		spdlog::set_pattern("[%Y-%m-%d %H:%M:%S] [%^%l%$] %v");
+	}
+
 	void Hello()
 	{
 		std::cout << "Hello from Gem!" << std::endl;
 
-		spdlog::set_pattern("[%Y-%m-%d %H:%M:%S] [%^%l%$] %v");
-		spdlog::init_thread_pool(2048, 1);
-		auto console_logger{ spdlog::stdout_color_mt<spdlog::async_factory>("console") };
-		auto file_logger{ spdlog::basic_logger_mt<spdlog::async_factory>("basic_logger", "log.txt") };
-		console_logger->info("Hello!");
-		file_logger->info("Hello!");
+		SPDLogHandle spdlog_handle{ false, false };
+		spdlog::info("Hello!");
 
 		auto n_threads{ std::thread::hardware_concurrency() - 2 };
 		tf::Executor executor{ n_threads };
