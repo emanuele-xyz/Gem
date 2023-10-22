@@ -3,7 +3,12 @@
 #include <stdexcept>
 #include <string_view>
 
+#if defined(GEM_DEBUG)
+#define GemCrash(msg) __debugbreak()
+#elif defined(GEM_RELEASE)
 #define GemCrash(msg) throw ::Gem::Crash(__FILE__, __LINE__, (msg))
+#endif
+
 #define GemUnreachable() GemCrash("unreachable code path")
 #define GemAssert(p) do { if (!(p)) GemCrash("assertion failed: " #p); } while (false)
 

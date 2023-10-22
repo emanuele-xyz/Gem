@@ -6,5 +6,6 @@ int main()
 {
 	std::cout << "Hello from Battling Through the Lands!" << std::endl;
 	Gem::Hello();
-	return 0;
+	GemCrash("crash");
+	//return 0;
 }
