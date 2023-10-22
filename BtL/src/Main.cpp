@@ -4,12 +4,10 @@
 
 int main()
 {
-	std::cout << "Hello from Battling Through the Lands!" << std::endl;
-	Gem::Hello();
-
 	try
 	{
-		GemCrash("crash");
+		std::cout << "Hello from Battling Through the Lands!" << std::endl;
+		Gem::Hello();
 	}
 	catch (const Gem::Crash& e)
 	{
