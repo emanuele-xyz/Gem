@@ -13,6 +13,7 @@ int main()
 	}
 	catch (const Gem::Crash& e)
 	{
+		Gem::ShowErrorPopup(e.what());
 		std::cout << e.what() << std::endl;
 	}
 
