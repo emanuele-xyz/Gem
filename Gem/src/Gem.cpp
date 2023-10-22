@@ -48,7 +48,7 @@ namespace Gem
 		SPDLogHandle spdlog_handle{ false, false };
 		spdlog::info("Hello!");
 
-		auto n_threads{ std::thread::hardware_concurrency() - 2 };
+		auto n_threads{ std::thread::hardware_concurrency() - 2 }; // TODO: hardware_concurr() - spdlog_#_workers - 1
 		tf::Executor executor{ n_threads };
 		tf::Taskflow taskflow{};
 
