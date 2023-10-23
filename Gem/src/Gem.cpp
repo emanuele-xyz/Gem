@@ -11,7 +11,7 @@ namespace Gem
 {
 	class SPDLogHandle
 	{
-	private:
+	public:
 		constexpr static int s_queue_size{ 2048 };
 		constexpr static int s_worker_threads{ 1 };
 	public:
@@ -41,20 +41,37 @@ namespace Gem
 		spdlog::set_pattern("[%Y-%m-%d %H:%M:%S] [%^%l%$] %v");
 	}
 
+	class TaskflowHandle
+	{
+	public:
+		TaskflowHandle(size_t n_threads);
+	public:
+		tf::Executor executor;
+	};
+
+	TaskflowHandle::TaskflowHandle(size_t n_threads)
+		: executor{ n_threads }
+	{
+	}
+}
+
+namespace Gem
+{
+	static std::unique_ptr<SPDLogHandle> s_spdlog_handle{};
+	static std::unique_ptr<TaskflowHandle> s_taskflow_handle{};
+
 	void Hello()
 	{
-		std::cout << "Hello from Gem!" << std::endl;
+		s_spdlog_handle = std::make_unique<SPDLogHandle>(true, false);
+		spdlog::info("Gem initialization started");
 
-		SPDLogHandle spdlog_handle{ false, false };
-		spdlog::info("Hello!");
+		s_taskflow_handle = std::make_unique<TaskflowHandle>(std::thread::hardware_concurrency() - s_spdlog_handle->s_worker_threads - 1);
+		spdlog::info("Taskflow initialized");
 
-		auto n_threads{ std::thread::hardware_concurrency() - 2 }; // TODO: hardware_concurr() - spdlog_#_workers - 1
-		tf::Executor executor{ n_threads };
 		tf::Taskflow taskflow{};
+		taskflow.emplace([]() { /*spdlog::info("TaskA");*/ });
+		taskflow.emplace([]() { /*spdlog::info("TaskB");*/ });
 
-		taskflow.emplace([]() { std::cout << "TaskA\n"; });
-		taskflow.emplace([]() { std::cout << "TaskB\n"; });
-
-		executor.run(taskflow).wait();
+		s_taskflow_handle->executor.run(taskflow).wait();
 	}
 }
