@@ -55,7 +55,6 @@ namespace Gem::SpdLog
 	}
 	Handle::~Handle()
 	{
-		GemAssert(s_handle);
 		s_handle = nullptr;
 
 		spdlog::shutdown(); // NOTE: necessary for spdlog not to crash on program exit
@@ -89,7 +88,6 @@ namespace Gem::Taskflow
 	}
 	Handle::~Handle()
 	{
-		GemAssert(s_handle);
 		s_handle = nullptr;
 	}
 }
