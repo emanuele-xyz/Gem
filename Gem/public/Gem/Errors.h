@@ -6,7 +6,7 @@
 #if defined(GEM_DEBUG)
 #define GemCrash(msg) __debugbreak()
 #elif defined(GEM_RELEASE)
-#define GemCrash(msg) throw ::Gem::Crash(__FILE__, __LINE__, (msg))
+#define GemCrash(msg) throw ::Gem::Crash(__FILE__, __LINE__, __FUNCTION__, (msg))
 #endif
 
 #define GemUnreachable() GemCrash("unreachable code path")
@@ -17,6 +17,6 @@ namespace Gem
 	class Crash : public std::runtime_error
 	{
 	public:
-		GEM_API Crash(std::string_view file, int line, std::string_view message);
+		GEM_API Crash(std::string_view file, int line, std::string_view function, std::string_view message);
 	};
 }
