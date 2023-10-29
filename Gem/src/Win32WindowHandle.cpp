@@ -5,6 +5,11 @@
 
 namespace Gem
 {
+	std::unique_ptr<WindowHandle> WindowHandle::Create(const std::string& title, int width, int height, bool is_windowed)
+	{
+		return std::make_unique<Win32WindowHandle>(title, width, height, is_windowed);
+	}
+
 	LRESULT Win32WindowClass::Procedure(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	{
 		LRESULT result = 0;
@@ -144,10 +149,6 @@ namespace Gem
 		}
 	}
 
-	std::unique_ptr<WindowHandle> WindowHandle::Create(const std::string& title, int width, int height, bool is_windowed)
-	{
-		return std::make_unique<Win32WindowHandle>(title, width, height, is_windowed);
-	}
 	Win32WindowHandle::Win32WindowHandle(const std::string& title, int width, int height, bool is_windowed)
 		: m_window_class{ "GemWin32WindowClass" }
 		, m_window{ m_window_class.Name(), title, width, height, is_windowed ? WS_OVERLAPPEDWINDOW : WS_POPUPWINDOW }

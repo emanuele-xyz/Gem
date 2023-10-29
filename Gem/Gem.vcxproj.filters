@@ -30,7 +30,7 @@
     <ClInclude Include="public\Gem\Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="private\Gem\Win32.h">
+    <ClInclude Include="private\Gem\Win32Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="public\Gem\WindowHandle.h">
@@ -40,6 +40,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="public\Gem\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Gem\GraphicsDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="private\Gem\D3D11GraphicsDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="private\Gem\D3D11Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,7 +68,16 @@
     <ClCompile Include="src\Win32WindowHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Win32.cpp">
+    <ClCompile Include="src\Win32Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\D3D11GraphicsDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\D3D11Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

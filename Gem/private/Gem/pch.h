@@ -1,7 +1,20 @@
 #pragma once
 
 #include <iostream>
-#include <format>
-#include <span>
+#include <stdexcept>
 #include <string>
-#include <vector>
+#include <string_view>
+#include <locale>
+#include <codecvt>
+#include <format>
+#include <cstdint>
+#include <deque>
+#include <cmath>
+#include <utility>
+#include <random>
+#include <functional>
+#include <memory>
+#include <fstream>
+#include <streambuf>
+#include <span>
+#include <cstddef>

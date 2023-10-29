@@ -62,7 +62,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>GEM_DEBUG;GEM_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GEM_DEBUG;GEM_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)\public;$(ProjectDir)\private;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -72,7 +72,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>GEM_RELEASE;GEM_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;GEM_RELEASE;GEM_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)\public;$(ProjectDir)\private;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -83,17 +83,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="private\Gem\D3D11Utils.h" />
     <ClInclude Include="private\Gem\pch.h" />
-    <ClInclude Include="private\Gem\Win32.h" />
+    <ClInclude Include="private\Gem\Win32Utils.h" />
     <ClInclude Include="private\Gem\Win32WindowHandle.h" />
+    <ClInclude Include="private\Gem\D3D11GraphicsDevice.h" />
     <ClInclude Include="public\Gem\Errors.h" />
     <ClInclude Include="public\Gem\Gem.h" />
     <ClInclude Include="public\Gem\GemAPI.h" />
+    <ClInclude Include="public\Gem\GraphicsDevice.h" />
     <ClInclude Include="public\Gem\Utils.h" />
     <ClInclude Include="public\Gem\Platform.h" />
     <ClInclude Include="public\Gem\WindowHandle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\D3D11GraphicsDevice.cpp" />
+    <ClCompile Include="src\D3D11Utils.cpp" />
     <ClCompile Include="src\Errors.cpp" />
     <ClCompile Include="src\Gem.cpp" />
     <ClCompile Include="src\pch.cpp">
@@ -101,7 +106,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\PlatformWin32.cpp" />
-    <ClCompile Include="src\Win32.cpp" />
+    <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="src\Win32Utils.cpp" />
     <ClCompile Include="src\Win32WindowHandle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

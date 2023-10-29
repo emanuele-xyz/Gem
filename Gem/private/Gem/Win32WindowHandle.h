@@ -1,6 +1,6 @@
 #pragma once
 #include <Gem\WindowHandle.h>
-#include <Gem\Win32.h>
+#include <Gem\Win32Utils.h>
 #include <string>
 #include <vector>
 
@@ -55,6 +55,7 @@ namespace Gem
 	public:
 		void Update() override;
 		std::span<const WindowEvent> GetEvents() override { return m_events; };
+		void* GetRawHandle() override { return m_window.Handle(); }
 	private:
 		void AddEvent(const Win32WindowMsg& msg);
 	private:

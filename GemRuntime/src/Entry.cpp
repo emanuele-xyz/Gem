@@ -8,6 +8,8 @@ namespace GemRuntime
 		//Gem::ShowErrorPopup("Hello from Gem Runtime!");
 
 		auto window_handle{ Gem::WindowHandle::Create("Gem Editor", 1280, 720, true) };
+		auto graphics_device{ Gem::GraphicsDevice::Create(Gem::GraphicsBackend::D3D11, window_handle.get()) };
+
 		bool is_running{ true };
 		while (is_running)
 		{
@@ -24,6 +26,7 @@ namespace GemRuntime
 				}
 			}
 
+			graphics_device->Present(true);
 		}
 
 		// TODO: to be implemented

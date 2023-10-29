@@ -30,5 +30,6 @@ namespace Gem
 	public:
 		virtual void Update() = 0;
 		virtual std::span<const WindowEvent> GetEvents() = 0;
+		virtual void* GetRawHandle() = 0;
 	};
 }

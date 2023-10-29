@@ -1,5 +1,5 @@
 #include <Gem\pch.h>
-#include <Gem\Win32.h>
+#include <Gem\Win32Utils.h>
 
 namespace Gem::Win32
 {
