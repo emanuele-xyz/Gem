@@ -84,12 +84,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="private\Gem\pch.h" />
-    <ClInclude Include="private\Gem\Utils.h" />
     <ClInclude Include="private\Gem\Win32.h" />
+    <ClInclude Include="private\Gem\Win32WindowHandle.h" />
     <ClInclude Include="public\Gem\Errors.h" />
     <ClInclude Include="public\Gem\Gem.h" />
     <ClInclude Include="public\Gem\GemAPI.h" />
+    <ClInclude Include="public\Gem\Utils.h" />
     <ClInclude Include="public\Gem\Platform.h" />
+    <ClInclude Include="public\Gem\WindowHandle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Errors.cpp" />
@@ -99,7 +101,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\PlatformWin32.cpp" />
-    <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="src\Win32.cpp" />
+    <ClCompile Include="src\Win32WindowHandle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -33,7 +33,13 @@
     <ClInclude Include="private\Gem\Win32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="private\Gem\Utils.h">
+    <ClInclude Include="public\Gem\WindowHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="private\Gem\Win32WindowHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="public\Gem\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,7 +56,10 @@
     <ClCompile Include="src\PlatformWin32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utils.cpp">
+    <ClCompile Include="src\Win32WindowHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Win32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
