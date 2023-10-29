@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gem", "Gem\Gem.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GemRuntime", "GemRuntime\GemRuntime.vcxproj", "{6E2B99D5-F007-4B70-BC6C-068C2C2A52D1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GemEditor", "GemEditor\GemEditor.vcxproj", "{19177EA2-2185-4836-AE32-8584900CB823}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{6E2B99D5-F007-4B70-BC6C-068C2C2A52D1}.Debug|x64.Build.0 = Debug|x64
 		{6E2B99D5-F007-4B70-BC6C-068C2C2A52D1}.Release|x64.ActiveCfg = Release|x64
 		{6E2B99D5-F007-4B70-BC6C-068C2C2A52D1}.Release|x64.Build.0 = Release|x64
+		{19177EA2-2185-4836-AE32-8584900CB823}.Debug|x64.ActiveCfg = Debug|x64
+		{19177EA2-2185-4836-AE32-8584900CB823}.Debug|x64.Build.0 = Debug|x64
+		{19177EA2-2185-4836-AE32-8584900CB823}.Release|x64.ActiveCfg = Release|x64
+		{19177EA2-2185-4836-AE32-8584900CB823}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
