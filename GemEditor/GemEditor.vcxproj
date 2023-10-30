@@ -49,8 +49,8 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>GEM_RUNTIME_IMPORT;GEM_DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\Gem\public;$(SolutionDir)\GemRuntime\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GEM_IMPORT;GEM_DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\Gem\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -59,8 +59,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>GEM_RUNTIME_IMPORT;GEM_RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\Gem\public;$(SolutionDir)\GemRuntime\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GEM_IMPORT;GEM_RELEASE;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include;$(SolutionDir)\Gem\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -80,9 +80,6 @@
     <ClInclude Include="include\GemEditor\pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GemRuntime\GemRuntime.vcxproj">
-      <Project>{6e2b99d5-f007-4b70-bc6c-068c2c2a52d1}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Gem\Gem.vcxproj">
       <Project>{e4a26bb3-4d94-458b-9c4b-b45c05e1ab7f}</Project>
     </ProjectReference>

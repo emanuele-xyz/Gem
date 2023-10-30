@@ -88,6 +88,7 @@
     <ClInclude Include="private\Gem\Win32Utils.h" />
     <ClInclude Include="private\Gem\Win32WindowHandle.h" />
     <ClInclude Include="private\Gem\D3D11GraphicsDevice.h" />
+    <ClInclude Include="public\Gem\Entry.h" />
     <ClInclude Include="public\Gem\Errors.h" />
     <ClInclude Include="public\Gem\Gem.h" />
     <ClInclude Include="public\Gem\GemAPI.h" />

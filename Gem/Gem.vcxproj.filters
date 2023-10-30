@@ -51,6 +51,9 @@
     <ClInclude Include="private\Gem\D3D11Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="public\Gem\Entry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gem.cpp">
